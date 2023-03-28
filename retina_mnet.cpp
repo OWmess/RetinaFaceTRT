@@ -344,6 +344,7 @@ int main(int argc, char** argv) {
 
     // Run inference
     static float prob[BATCH_SIZE * OUTPUT_SIZE];
+
     auto start = std::chrono::system_clock::now();
     doInference(*context, data, prob, BATCH_SIZE);
     auto end = std::chrono::system_clock::now();
@@ -365,7 +366,7 @@ int main(int argc, char** argv) {
                 cv::circle(tmp, cv::Point(res[j].landmark[k], res[j].landmark[k + 1]), 1, cv::Scalar(255 * (k > 2), 255 * (k > 0 && k < 8), 255 * (k < 6)), 4);
             }
         }
-        cv::imwrite(std::to_string(b) + "_result.jpg", tmp);
+//        cv::imwrite(std::to_string(b) + "_result.jpg", tmp);
     }
 
     // Destroy the engine

@@ -404,7 +404,8 @@ int main(int argc, char** argv) {
                 showimg=tmp.clone();
             }
 //        cv::imwrite(std::to_string(b) + "_result.jpg", tmp);
-            cv::imshow("frame",showimg);
+            if(!showimg.size().empty())
+                cv::imshow("frame",showimg);
         }
     }
 
